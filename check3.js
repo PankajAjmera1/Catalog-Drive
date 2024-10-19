@@ -26,7 +26,6 @@ function findConstantTerm(points) {
     return Math.round(constantTerm);
 }
 
-// Function to process a test case
 function processTestCase(testCase) {
     const keys = testCase.keys;
     const n = keys.n;
@@ -37,7 +36,7 @@ function processTestCase(testCase) {
     for (let i = 1; i <= n; i++) {
         if (!testCase[i.toString()]) {
             console.error(`Entry for index ${i} is undefined`);
-            continue; // Skip this iteration if the entry is undefined
+            continue; 
         }
 
         const base = parseInt(testCase[i.toString()].base);
@@ -48,10 +47,8 @@ function processTestCase(testCase) {
         points.push([x, y]);
     }
 
-    // Use only the first k points for interpolation
     const selectedPoints = points.slice(0, k);
 
-    // Find the constant term using Lagrange interpolation
     const constantTerm = findConstantTerm(selectedPoints);
 
     return constantTerm;
